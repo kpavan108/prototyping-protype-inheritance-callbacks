@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Step 1: Define the Asynchronous Function
+function fetchData(callback) {
+    console.log("Fetching data...");
+
+    // Simulate an asynchronous operation using setTimeout
+    setTimeout(function() {
+        const data = { id: 1, name: "John Doe" };
+        callback(data);
+    }, 2000); // Simulate a 2-second delay
+}
+
+// Step 2: Define the Callback Function
+function handleData(data) {
+    console.log("Data received:", data);
+}
+
+// Step 3: Call the Asynchronous Function with the Callback
+fetchData(handleData);
+
+    </script>
+</body>
+</html>

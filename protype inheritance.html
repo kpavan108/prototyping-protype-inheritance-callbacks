@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Step 1: Create a Base Constructor Function
+function Animal(name) {
+    this.name = name;
+}
+
+// Step 2: Add a Method to the Base Constructor's Prototype
+Animal.prototype.speak = function() {
+    console.log(this.name + " makes a noise.");
+};
+
+// Step 3: Create a Derived Constructor Function
+function Dog(name, breed) {
+    Animal.call(this, name); // Call the parent constructor with the context of the derived constructor
+    this.breed = breed;
+}
+
+// Step 4: Set Up Inheritance
+Dog.prototype = Object.create(Animal.prototype);
+Dog.prototype.constructor = Dog; // Reset the constructor property of Dog to itself
+
+// Step 5: Add a Method to the Derived Constructor's Prototype
+Dog.prototype.bark = function() {
+    console.log(this.name + " barks.");
+};
+
+// Step 6: Create Instances of the Derived Constructor
+let dog1 = new Dog("Rex", "German Shepherd");
+let dog2 = new Dog("Buddy", "Golden Retriever");
+
+dog1.speak(); // Output: Rex makes a noise.
+dog1.bark();  // Output: Rex barks.
+
+dog2.speak(); // Output: Buddy makes a noise.
+dog2.bark();  // Output: Buddy barks.
+
+    </script>
+</body>
+</html>

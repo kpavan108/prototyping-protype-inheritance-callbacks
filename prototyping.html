@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Step 1: Create a Constructor Function
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+// Step 2: Create Instances of the Constructor
+let person1 = new Person("Alice", 25);
+let person2 = new Person("Bob", 30);
+
+// Step 3: Add a Method Using Prototyping
+Person.prototype.greet = function() {
+    console.log("Hello, my name is " + this.name + " and I am " + this.age + " years old.");
+};
+
+// Step 4: Call the Prototype Method
+person1.greet(); // Output: Hello, my name is Alice and I am 25 years old.
+person2.greet(); // Output: Hello, my name is Bob and I am 30 years old.
+
+    </script>
+</body>
+</html>
